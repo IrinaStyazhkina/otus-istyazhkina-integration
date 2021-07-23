@@ -18,7 +18,7 @@ public class IntegrationConfig {
 
     @Bean
     public QueueChannel caterpillarChannel() {
-        return MessageChannels.queue( 50 ).get();
+        return MessageChannels.queue(50).get();
     }
 
     @Bean
@@ -28,7 +28,7 @@ public class IntegrationConfig {
 
     @Bean(name = PollerMetadata.DEFAULT_POLLER)
     public PollerMetadata poller() {
-        return Pollers.fixedRate( 100 ).get();
+        return Pollers.fixedRate(100).get();
     }
 
     @Bean
