@@ -11,10 +11,14 @@ import org.springframework.integration.dsl.IntegrationFlows;
 import org.springframework.integration.dsl.MessageChannels;
 import org.springframework.integration.dsl.Pollers;
 import org.springframework.integration.scheduling.PollerMetadata;
+import ru.otus.istyazhkina.integration.transformation.TransformationService;
 
 @Configuration
 @RequiredArgsConstructor
 public class IntegrationConfig {
+
+    private final TransformationService transformationService;
+    private final String methodName = "transform";
 
     @Bean
     public QueueChannel caterpillarChannel() {
@@ -35,7 +39,7 @@ public class IntegrationConfig {
     public IntegrationFlow transformationFlow() {
         return IntegrationFlows.from( "caterpillarChannel" )
                 .split()
-                .handle("transformationService", "transform")
+                .handle(transformationService, methodName)
                 .aggregate()
                 .channel( "butterflyChannel" )
                 .get();
