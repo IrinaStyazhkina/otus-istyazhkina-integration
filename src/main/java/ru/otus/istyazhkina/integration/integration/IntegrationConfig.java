@@ -1,7 +1,6 @@
 package ru.otus.istyazhkina.integration.integration;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.integration.channel.PublishSubscribeChannel;
@@ -18,7 +17,7 @@ import ru.otus.istyazhkina.integration.transformation.TransformationService;
 public class IntegrationConfig {
 
     private final TransformationService transformationService;
-    private final String methodName = "transform";
+    private static final String methodName = "transform";
 
     @Bean
     public QueueChannel caterpillarChannel() {
