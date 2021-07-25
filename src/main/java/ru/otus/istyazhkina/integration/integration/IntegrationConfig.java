@@ -43,5 +43,4 @@ public class IntegrationConfig {
                 .channel( "butterflyChannel" )
                 .get();
     }
-
 }

@@ -1,6 +1,5 @@
 package ru.otus.istyazhkina.integration.shell;
 
-
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.RandomUtils;
 import org.springframework.shell.standard.ShellComponent;
