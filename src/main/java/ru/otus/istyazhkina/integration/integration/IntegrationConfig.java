@@ -36,11 +36,11 @@ public class IntegrationConfig {
 
     @Bean
     public IntegrationFlow transformationFlow() {
-        return IntegrationFlows.from( "caterpillarChannel" )
+        return IntegrationFlows.from(caterpillarChannel())
                 .split()
                 .handle(transformationService, methodName)
                 .aggregate()
-                .channel( "butterflyChannel" )
+                .channel(butterflyChannel())
                 .get();
     }
 }

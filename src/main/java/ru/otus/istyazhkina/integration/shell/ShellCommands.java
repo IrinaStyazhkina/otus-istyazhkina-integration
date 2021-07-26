@@ -20,18 +20,18 @@ public class ShellCommands {
 
     private final Lifecycle lifecycle;
 
-    @ShellMethod(value = "getCaterpillarCount", key = "count")
-    public void getCaterpillarCount(@ShellOption Integer count) {
+    @ShellMethod(value = "start transformation", key = "start")
+    public void startTransformation(@ShellOption Integer count) {
         final List<String> colors = List.of("red", "green", "blue", "yellow", "pink", "lilla", "orange");
 
         List<Caterpillar> caterpillars = new ArrayList<>();
-        for (int i = 0; i < count; i++ ) {
+        for (int i = 0; i < count; i++) {
             caterpillars.add(new Caterpillar(colors.get(RandomUtils.nextInt(0, colors.size() - 1))));
         }
 
-        System.out.println( "Born caterpillars: " +
-                caterpillars.stream().map( Caterpillar::getColor)
-                        .collect( Collectors.joining( "," ) ) );
+        System.out.println("Born caterpillars: " +
+                caterpillars.stream().map(Caterpillar::getColor)
+                        .collect(Collectors.joining(",")));
 
         Collection<Butterfly> butterflies = lifecycle.process( caterpillars );
         System.out.println( "Transformed to butterflies: " + butterflies.stream()
